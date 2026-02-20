@@ -1,13 +1,14 @@
-import { motion } from 'motion/react';
-import { useLanguage } from '../context/LanguageContext';
+import { motion } from "motion/react";
+import { useLanguage } from "../context/LanguageContext";
 
 const skills = [
-  { name: 'Node.js', logo: '🟢' },
-  { name: 'TypeScript', logo: 'TS' },
-  { name: 'Express', logo: '🚂' },
-  { name: 'SQL', logo: '🐘' },
-  { name: 'NoSQL', logo: '🍃' },
-  { name: 'Docker', logo: '🐳' },
+  { name: "Node.js", logoSrc: "/tech-logos/node-js-svgrepo-com.svg" },
+  { name: "TypeScript", logoSrc: "/tech-logos/typescript-svgrepo-com.svg" },
+  { name: "MongoDB", logoSrc: "/tech-logos/mongodb-svgrepo-com (1).svg" },
+  { name: "PostgreSQL", logoSrc: "/tech-logos/postgresql-svgrepo-com.svg" },
+  { name: "AWS", logoSrc: "/tech-logos/awsicon.svg" },
+  { name: "Express.js", logoSrc: "/tech-logos/express-svgrepo-com.svg" },
+  { name: "Redis", logoSrc: "/tech-logos/redis-svgrepo-com.svg" },
 ];
 
 export default function About() {
@@ -16,7 +17,7 @@ export default function About() {
   return (
     <section id="about" className="py-16 lg:py-24 bg-black relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center lg:min-h-[820px]">
           {/* Left Column: Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -25,17 +26,17 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="relative mb-8 lg:mb-0"
           >
-            <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl border border-zinc-800">
+            <div className="group relative z-10 rounded-lg overflow-hidden shadow-2xl ">
               <img
-                src="https://picsum.photos/seed/workspace/800/600"
+                src="/pcwiu.jpeg"
                 alt="Workspace"
-                className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                className="w-full h-[520px] sm:h-[620px] lg:h-[760px] object-cover object-center grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
               />
             </div>
-            
+
             {/* Experience Badge */}
             <div className="absolute -bottom-6 -left-2 sm:-left-6 z-20 bg-zinc-900 p-4 sm:p-6 rounded-lg border-l-4 border-blue-600 shadow-xl max-w-[160px] sm:max-w-none">
-              <div className="text-3xl sm:text-5xl font-bold text-white mb-1">06</div>
+              <div className="text-3xl sm:text-5xl font-bold text-white mb-1">01</div>
               <div className="text-gray-400 text-xs sm:text-sm font-medium uppercase tracking-wider whitespace-pre-line">
                 {t.about.yearsExperience}
               </div>
@@ -43,11 +44,11 @@ export default function About() {
 
             {/* Decorative dots */}
             <div className="absolute -top-10 -right-10 w-32 h-32 opacity-20 hidden sm:block">
-               <div className="grid grid-cols-5 gap-2">
-                 {[...Array(25)].map((_, i) => (
-                   <div key={i} className="w-1 h-1 bg-blue-500 rounded-full"></div>
-                 ))}
-               </div>
+              <div className="grid grid-cols-5 gap-2">
+                {[...Array(25)].map((_, i) => (
+                  <div key={i} className="w-1 h-1 bg-blue-500 rounded-full"></div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
@@ -57,28 +58,27 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mt-8 lg:mt-0"
+            className="mt-8 lg:mt-0 lg:self-center"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 whitespace-pre-line">
-              {t.about.title}
-            </h2>
-            
-            <p className="text-gray-400 mb-8 leading-relaxed text-sm sm:text-base">
-              {t.about.description}
-            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 whitespace-pre-line">{t.about.title}</h2>
 
-            {/* Skills / Logos Grid */}
+            <p className="text-gray-400 mb-8 leading-relaxed text-sm sm:text-base">{t.about.description}</p>
+
+            {/* Skills / Logos */}
             <div className="mb-10">
-              <h3 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm opacity-80">{t.about.techStack}</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <h3 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm opacity-80">
+                {t.about.techStack}
+              </h3>
+              <div className="flex items-center gap-8 sm:gap-10 overflow-x-auto whitespace-nowrap pb-1">
                 {skills.map((skill) => (
-                  <div 
+                  <img
                     key={skill.name}
-                    className="flex items-center gap-3 p-3 bg-zinc-900/50 border border-zinc-800 rounded hover:border-blue-500/50 transition-colors group"
-                  >
-                    <span className="text-xl sm:text-2xl group-hover:scale-110 transition-transform">{skill.logo}</span>
-                    <span className="text-gray-300 font-medium text-sm sm:text-base">{skill.name}</span>
-                  </div>
+                    src={skill.logoSrc}
+                    alt={`Logo ${skill.name}`}
+                    title={skill.name}
+                    loading="lazy"
+                    className="h-12 sm:h-14 w-auto object-contain shrink-0"
+                  />
                 ))}
               </div>
             </div>
