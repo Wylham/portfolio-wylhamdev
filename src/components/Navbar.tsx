@@ -34,8 +34,8 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="text-2xl font-bold text-white tracking-tighter">
-          Cod<span className="text-blue-500">er</span>
+        <a href="#" className="flex-shrink-0">
+          <img src="/logos-w/LogoWhiteWDEV.svg" alt="WylhamDev Logo" className="h-8 w-auto" />
         </a>
 
         {/* Desktop Nav */}

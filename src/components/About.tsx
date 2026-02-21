@@ -41,15 +41,6 @@ export default function About() {
                 {t.about.yearsExperience}
               </div>
             </div>
-
-            {/* Decorative dots */}
-            <div className="absolute -top-10 -right-10 w-32 h-32 opacity-20 hidden sm:block">
-              <div className="grid grid-cols-5 gap-2">
-                {[...Array(25)].map((_, i) => (
-                  <div key={i} className="w-1 h-1 bg-blue-500 rounded-full"></div>
-                ))}
-              </div>
-            </div>
           </motion.div>
 
           {/* Right Column: Content */}
