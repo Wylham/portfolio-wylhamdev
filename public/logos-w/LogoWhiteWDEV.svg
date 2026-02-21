@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 584.18 106.04">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        font-family: GuntaGX-Light, 'Gunta GX';
+        font-variation-settings: 'wght' 100;
+        font-weight: 300;
+      }
+
+      .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-5, .cls-6 {
+        font-family: GuntaGX-Regular, 'Gunta GX';
+        font-variation-settings: 'wght' 140;
+      }
+
+      .cls-4 {
+        font-size: 80px;
+      }
+
+      .cls-6 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-2 {
+        letter-spacing: -.02em;
+      }
+    </style>
+  </defs>
+  <g id="Camada_1-2" data-name="Camada 1">
+    <g>
+      <g>
+        <polygon class="cls-3" points="66.74 0 66.74 10.75 54.41 23.08 11.65 65.84 0 65.84 0 31.39 31.39 0 66.74 0"/>
+        <polygon class="cls-3" points="120.18 0 120.18 9.82 108.8 21.2 89.2 40.81 71.2 58.8 66.74 63.26 64.16 65.84 54.41 75.58 31.99 98 0 98 0 86.82 54.48 32.34 66.74 20.08 86.82 0 120.18 0"/>
+        <polygon class="cls-3" points="120.18 32.34 120.18 65.91 108.8 77.29 89.2 96.9 88.09 98 54.41 98 54.41 87.86 109.92 32.34 120.18 32.34"/>
+      </g>
+      <text class="cls-4" transform="translate(144.03 77.96)"><tspan class="cls-2" x="0" y="0">W</tspan><tspan class="cls-1" x="73.52" y="0">ylham</tspan><tspan class="cls-5" x="298.56" y="0">D</tspan><tspan class="cls-6" x="352.32" y="0">e</tspan><tspan class="cls-5" x="397.2" y="0">v</tspan></text>
+    </g>
+  </g>
+</svg>

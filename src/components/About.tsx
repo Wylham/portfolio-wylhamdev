@@ -4,7 +4,7 @@ import { useLanguage } from "../context/LanguageContext";
 const skills = [
   { name: "Node.js", logoSrc: "/tech-logos/node-js-svgrepo-com.svg" },
   { name: "TypeScript", logoSrc: "/tech-logos/typescript-svgrepo-com.svg" },
-  { name: "MongoDB", logoSrc: "/tech-logos/mongodb-svgrepo-com (1).svg" },
+  { name: "MongoDB", logoSrc: "/tech-logos/mongodb-svgrepo-com.svg" },
   { name: "PostgreSQL", logoSrc: "/tech-logos/postgresql-svgrepo-com.svg" },
   { name: "AWS", logoSrc: "/tech-logos/awsicon.svg" },
   { name: "Express.js", logoSrc: "/tech-logos/express-svgrepo-com.svg" },
