@@ -6,7 +6,7 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-12 lg:pt-20 lg:pb-0 overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-center pt-28 pb-12 sm:pt-24 lg:pt-20 lg:pb-0 overflow-hidden bg-black">
       {/* Background Gradients */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-900/40 rounded-full blur-[120px] pointer-events-none transform translate-x-1/3 -translate-y-1/3"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/30 rounded-full blur-[120px] pointer-events-none transform -translate-x-1/3 translate-y-1/3"></div>
@@ -24,12 +24,12 @@ export default function Hero() {
               <span className="text-blue-400 font-mono text-lg md:text-xl tracking-wide mb-2 text-left">
                 {t.hero.hello}
               </span>
-              <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold text-white leading-none tracking-tighter text-center">
+              <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-8xl xl:text-9xl font-semibold text-white leading-none tracking-tighter text-center">
                 Wylham
               </h1>
               <div className="relative inline-block mt-1 self-center">
                 <div className="absolute bottom-0 left-0 w-full h-[55%] bg-blue-500"></div>
-                <span className="relative text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-semibold italic text-white leading-none tracking-tighter">
+                <span className="relative text-5xl sm:text-7xl md:text-8xl lg:text-8xl xl:text-9xl font-semibold italic text-white leading-none tracking-tighter">
                   Dev
                 </span>
               </div>
@@ -45,9 +45,12 @@ export default function Hero() {
               {t.hero.downloadCv}
               <Download size={20} className="group-hover:translate-y-1 transition-transform" />
             </button>
-            <button className="px-8 py-4 border border-gray-700 hover:border-white text-white font-medium rounded-full transition-all text-lg hover:bg-white/5">
+            <a
+              href="#portfolio"
+              className="px-8 py-4 border border-gray-700 hover:border-white text-white font-medium rounded-full transition-all text-lg hover:bg-white/5"
+            >
               {t.hero.myWork}
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "../context/LanguageContext";
@@ -27,6 +27,14 @@ export default function Navbar() {
     setLanguage(language === "en" ? "pt" : "en");
   };
 
+  const handleMobileNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    setTimeout(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -35,7 +43,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#" className="flex-shrink-0">
-          <img src="/logos-w/LogoWhiteWDEV.svg" alt="WylhamDev Logo" className="h-8 w-auto" />
+          <img src="/logos-w/LogoWhiteWDEV.svg" alt="WylhamDev Logo" className="h-6 md:h-8 w-auto" />
         </a>
 
         {/* Desktop Nav */}
@@ -89,15 +97,15 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black border-t border-gray-800 overflow-hidden"
+            className="md:hidden bg-black overflow-hidden mt-4"
           >
-            <div className="flex flex-col p-6 space-y-4">
+            <div className="flex flex-col px-6 pt-8 pb-6 space-y-6">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   className="text-gray-300 hover:text-blue-500 font-medium"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleMobileNav(e, link.href)}
                 >
                   {link.name}
                 </a>
@@ -105,7 +113,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 className="inline-block text-center px-6 py-3 bg-blue-600 text-white font-bold rounded-lg"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleMobileNav(e, "#contact")}
               >
                 {t.nav.hireMe}
               </a>

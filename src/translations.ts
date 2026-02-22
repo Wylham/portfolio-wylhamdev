@@ -18,7 +18,7 @@ export const translations = {
       myWork: "My Projects",
     },
     about: {
-      yearsExperience: "Years of\nExperience",
+      yearsExperience: "Year of\nExperience",
       title: "Backend Development\n& Architecture",
       description:
         "I specialize in building REST APIs and integrations, working with SQL and NoSQL databases and cloud technologies to deliver stable and scalable solutions. I have experience in logistics and transportation environments, giving me practical insight into operations and real-world processes when transforming business rules into systems.",

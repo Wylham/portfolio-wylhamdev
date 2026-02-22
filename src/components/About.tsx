@@ -15,9 +15,9 @@ export default function About() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-16 lg:py-24 bg-black relative overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center lg:min-h-[820px]">
+    <section id="about" className="pt-16 pb-20 lg:py-0 lg:min-h-screen lg:flex lg:items-center bg-black relative">
+      <div className="container mx-auto px-6 w-full lg:py-12">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -30,7 +30,7 @@ export default function About() {
               <img
                 src="/pcwiu.jpeg"
                 alt="Workspace"
-                className="w-full h-[520px] sm:h-[620px] lg:h-[760px] object-cover object-center grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                className="w-full h-[360px] sm:h-[480px] lg:h-[50vh] object-cover object-center grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
               />
             </div>
 
@@ -57,10 +57,8 @@ export default function About() {
 
             {/* Skills / Logos */}
             <div className="mb-10">
-              <h3 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm opacity-80">
-                {t.about.techStack}
-              </h3>
-              <div className="flex items-center gap-8 sm:gap-10 overflow-x-auto whitespace-nowrap pb-1">
+              <h3 className="text-white font-semibold mb-4 tracking-wider text-sm">{t.about.techStack}</h3>
+              <div className="flex flex-wrap items-center gap-5 sm:gap-6 lg:gap-8 pb-1">
                 {skills.map((skill) => (
                   <img
                     key={skill.name}
@@ -68,7 +66,7 @@ export default function About() {
                     alt={`Logo ${skill.name}`}
                     title={skill.name}
                     loading="lazy"
-                    className="h-12 sm:h-14 w-auto object-contain shrink-0"
+                    className="h-9 sm:h-12 w-auto min-w-[28px] object-contain"
                   />
                 ))}
               </div>
