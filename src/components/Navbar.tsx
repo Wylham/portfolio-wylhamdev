@@ -27,12 +27,19 @@ export default function Navbar() {
     setLanguage(language === "en" ? "pt" : "en");
   };
 
+  const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (!target) return;
+    target.scrollIntoView({ behavior: "instant" });
+  };
+
   const handleMobileNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
     setTimeout(() => {
-      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-    }, 300);
+      document.querySelector(href)?.scrollIntoView({ behavior: "instant" });
+    }, 280);
   };
 
   return (
@@ -52,6 +59,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => handleNav(e, link.href)}
               className="text-sm font-medium text-gray-300 hover:text-blue-500 transition-colors"
             >
               {link.name}
@@ -68,6 +76,7 @@ export default function Navbar() {
 
           <a
             href="#contact"
+            onClick={(e) => handleNav(e, "#contact")}
             className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-full transition-colors"
           >
             {t.nav.hireMe}
