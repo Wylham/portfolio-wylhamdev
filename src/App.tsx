@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Services from "./components/Services";
+import Expertise from "./components/Expertise";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
@@ -15,7 +15,7 @@ function AppContent() {
       <main>
         <Hero />
         <About />
-        <Services />
+        <Expertise />
         <Projects />
       </main>
 

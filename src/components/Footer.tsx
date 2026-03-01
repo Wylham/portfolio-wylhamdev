@@ -11,7 +11,7 @@ const socialLinks = [
 
 const navLinks = [
   { key: "about" as const, href: "#about" },
-  { key: "services" as const, href: "#services" },
+  { key: "expertise" as const, href: "#expertise" },
   { key: "portfolio" as const, href: "#portfolio" },
   { key: "contact" as const, href: "#contact" },
 ];

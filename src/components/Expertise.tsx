@@ -5,14 +5,13 @@ import { Server, Database, Workflow, Cloud } from "lucide-react";
 
 const icons = [Server, Database, Workflow, Cloud];
 
-const serviceImages = [
+const expertiseImages = [
   "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
   "https://images.unsplash.com/photo-1633412802994-5c058f151b66?auto=format&fit=crop&w=800&q=80",
   "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
   "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
 ];
 
-// Transition compartilhado — tween curto, sem simulação de física
 const CARD_TRANSITION = { duration: 0.28, ease: [0.25, 0.1, 0.25, 1] as const };
 
 function deckAnimate(depth: number) {
@@ -31,7 +30,7 @@ function deckAnimate(depth: number) {
   return { y: 100, scale: 0.95, opacity: 0, zIndex: 0 };
 }
 
-export default function Services() {
+export default function Expertise() {
   const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -41,26 +40,24 @@ export default function Services() {
     offset: ["start start", "end end"],
   });
 
-  // useMotionValueEvent evita criar/destruir listener manualmente e é mais eficiente
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const total = t.services.items.length;
+    const total = t.expertise.items.length;
     const clamped = Math.min(Math.max(latest, 0), 0.9999);
     setActiveIndex(Math.min(Math.floor(clamped * total), total - 1));
   });
 
   return (
-    <section id="services" className="bg-zinc-950">
-      <div ref={containerRef} className="relative" style={{ height: `${t.services.items.length * 100}vh` }}>
-        {/* ── MOBILE (< lg) ─────────────────────────────── */}
+    <section id="expertise" className="bg-zinc-950">
+      <div ref={containerRef} className="relative" style={{ height: `${t.expertise.items.length * 100}vh` }}>
         <div className="lg:hidden sticky top-0 h-screen overflow-hidden">
           <div className="h-full flex flex-col justify-center px-5 sm:px-8 max-w-lg mx-auto w-full">
             <div className="shrink-0 mb-20">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">{t.services.title}</h2>
-              <p className="text-gray-500 text-sm mt-2 leading-relaxed">{t.services.description}</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">{t.expertise.title}</h2>
+              <p className="text-gray-500 text-sm mt-2 leading-relaxed">{t.expertise.description}</p>
             </div>
 
             <div className="relative w-full shrink-0" style={{ height: 400 }}>
-              {t.services.items.map((item, index) => {
+              {t.expertise.items.map((item, index) => {
                 const Icon = icons[index % icons.length];
                 const anim = deckAnimate(activeIndex - index);
 
@@ -72,13 +69,11 @@ export default function Services() {
                     animate={{ y: anim.y, opacity: anim.opacity, scale: anim.scale }}
                     transition={CARD_TRANSITION}
                   >
-                    {/* Shell estático — overflow-hidden + border-radius não animados = sem repaint */}
                     <div className="absolute inset-0 bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden shadow-xl shadow-black/30 pointer-events-none" />
-                    {/* Conteúdo por cima */}
                     <div className="relative h-full rounded-2xl overflow-hidden">
                       <div className="relative h-40">
                         <img
-                          src={serviceImages[index]}
+                          src={expertiseImages[index]}
                           alt={item.title}
                           className="w-full h-full object-cover"
                           loading="lazy"
@@ -101,18 +96,16 @@ export default function Services() {
           </div>
         </div>
 
-        {/* ── DESKTOP (≥ lg) ────────────────────────────── */}
         <div className="hidden lg:block sticky top-0 h-screen overflow-hidden">
           <div className="h-full flex items-center container mx-auto px-8 xl:px-12">
             <div className="grid grid-cols-[2fr_3fr] gap-10 xl:gap-16 w-full">
-              {/* Left column */}
               <div className="flex flex-col justify-center">
                 <div className="mb-10">
-                  <h2 className="text-4xl xl:text-5xl font-bold text-white leading-tight mb-3">{t.services.title}</h2>
-                  <p className="text-gray-500 text-sm xl:text-base max-w-md">{t.services.description}</p>
+                  <h2 className="text-4xl xl:text-5xl font-bold text-white leading-tight mb-3">{t.expertise.title}</h2>
+                  <p className="text-gray-500 text-sm xl:text-base max-w-md">{t.expertise.description}</p>
                 </div>
                 <div className="space-y-6">
-                  {t.services.items.map((item, index) => (
+                  {t.expertise.items.map((item, index) => (
                     <motion.div
                       key={index}
                       animate={{
@@ -141,10 +134,9 @@ export default function Services() {
                 </div>
               </div>
 
-              {/* Right column — card deck */}
               <div className="flex items-center justify-center">
                 <div className="relative w-full" style={{ height: "min(640px, 78vh)" }}>
-                  {t.services.items.map((item, index) => {
+                  {t.expertise.items.map((item, index) => {
                     const Icon = icons[index % icons.length];
                     const anim = deckAnimate(activeIndex - index);
 
@@ -156,13 +148,11 @@ export default function Services() {
                         animate={{ y: anim.y, opacity: anim.opacity, scale: anim.scale }}
                         transition={CARD_TRANSITION}
                       >
-                        {/* Shell estático */}
                         <div className="absolute inset-0 bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden shadow-2xl shadow-black/40 pointer-events-none" />
-                        {/* Conteúdo */}
                         <div className="relative h-full rounded-2xl overflow-hidden">
                           <div className="relative h-[65%]">
                             <img
-                              src={serviceImages[index]}
+                              src={expertiseImages[index]}
                               alt={item.title}
                               className="w-full h-full object-cover"
                               loading="lazy"

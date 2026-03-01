@@ -4,7 +4,7 @@ export const translations = {
   en: {
     nav: {
       about: "About Me",
-      services: "Services",
+      expertise: "Expertise",
       portfolio: "Projects",
       testimonials: "Testimonials",
       blog: "Blog",
@@ -26,10 +26,10 @@ export const translations = {
       hireMe: "Hire Me!",
       aboutMe: "About Me",
     },
-    services: {
+    expertise: {
       title: "My Expertise",
-      subtitle: "Services",
-      description: "Comprehensive backend solutions tailored to your business needs.",
+      subtitle: "Expertise",
+      description: "Areas where I have solid experience and keep building projects in day-to-day work.",
       items: [
         {
           title: "API Development",
@@ -39,12 +39,12 @@ export const translations = {
         {
           title: "Database Design",
           description:
-            "Efficient SQL and NoSQL database architectures ensuring data integrity, speed, and scalability.",
+            "Experience with PostgreSQL for relational modeling and MongoDB for flexible NoSQL structures, focusing on performance and data integrity.",
         },
         {
           title: "System Integration",
           description:
-            "Seamless integration of third-party services, payment gateways, and legacy systems into modern architectures.",
+            "Seamless integration of third-party platforms, payment gateways, and legacy systems into modern architectures.",
         },
         {
           title: "Cloud Solutions",
@@ -77,7 +77,7 @@ export const translations = {
   pt: {
     nav: {
       about: "Sobre Mim",
-      services: "Serviços",
+      expertise: "Expertise",
       portfolio: "Projetos",
       testimonials: "Depoimentos",
       blog: "Blog",
@@ -99,10 +99,10 @@ export const translations = {
       hireMe: "Contrate-me!",
       aboutMe: "Sobre Mim",
     },
-    services: {
+    expertise: {
       title: "Minha Expertise",
-      subtitle: "Serviços",
-      description: "Soluções backend abrangentes e adaptadas às necessidades do seu negócio.",
+      subtitle: "Expertise",
+      description: "Áreas onde tenho experiência sólida e venho construindo projetos no dia a dia.",
       items: [
         {
           title: "Desenvolvimento de APIs",
@@ -112,12 +112,12 @@ export const translations = {
         {
           title: "Design de Banco de Dados",
           description:
-            "Arquiteturas de banco de dados SQL e NoSQL eficientes garantindo integridade de dados, velocidade e escalabilidade.",
+            "Experiência com PostgreSQL para modelagem relacional e MongoDB para estruturas NoSQL flexíveis, com foco em performance e integridade dos dados.",
         },
         {
           title: "Integração de Sistemas",
           description:
-            "Integração perfeita de serviços de terceiros, gateways de pagamento e sistemas legados em arquiteturas modernas.",
+            "Integração perfeita de plataformas de terceiros, gateways de pagamento e sistemas legados em arquiteturas modernas.",
         },
         {
           title: "Soluções em Nuvem",
