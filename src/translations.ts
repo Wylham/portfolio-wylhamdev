@@ -68,6 +68,10 @@ export const translations = {
     },
     footer: {
       rights: "All rights reserved.",
+      description:
+        "Backend Developer specializing in scalable APIs and robust architectures with Node.js, TypeScript, and cloud technologies.",
+      quickLinks: "Quick Links",
+      connect: "Connect",
     },
   },
   pt: {
@@ -137,6 +141,10 @@ export const translations = {
     },
     footer: {
       rights: "Todos os direitos reservados.",
+      description:
+        "Acredito que tecnologia boa é aquela que resolve problemas de forma simples e eficiente. É nisso que coloco minha energia: construir soluções bem feitas, com foco em clareza, performance e resultado.",
+      quickLinks: "Links Rápidos",
+      connect: "Conecte-se",
     },
   },
 };

@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Services from "./components/Services";
 import Projects from "./components/Projects";
+import Footer from "./components/Footer";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 
 function AppContent() {
@@ -18,11 +19,7 @@ function AppContent() {
         <Projects />
       </main>
 
-      <footer className="bg-black border-t border-zinc-900 py-8 text-center text-gray-500 text-sm">
-        <p>
-          © {new Date().getFullYear()} Wylham Dev {t.footer.rights}
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
