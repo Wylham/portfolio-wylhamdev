@@ -12,7 +12,7 @@ const expertiseImages = [
   "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
 ];
 
-const CARD_TRANSITION = { duration: 0.28, ease: [0.25, 0.1, 0.25, 1] as const };
+const CARD_TRANSITION = { type: "spring", stiffness: 260, damping: 20 };
 
 function deckAnimate(depth: number) {
   if (depth === 0) {
@@ -50,13 +50,16 @@ export default function Expertise() {
     <section id="expertise" className="bg-zinc-950">
       <div ref={containerRef} className="relative" style={{ height: `${t.expertise.items.length * 100}vh` }}>
         <div className="lg:hidden sticky top-0 h-screen overflow-hidden">
-          <div className="h-full flex flex-col justify-center px-5 sm:px-8 max-w-lg mx-auto w-full">
-            <div className="shrink-0 mb-20">
+          <div className="h-full flex flex-col justify-center px-5 sm:px-8 max-w-lg mx-auto w-full pt-16">
+            <div className="shrink-0 mb-12 sm:mb-16 relative z-20">
               <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight">{t.expertise.title}</h2>
-              <p className="text-gray-500 text-sm mt-2 leading-relaxed">{t.expertise.description}</p>
+              <p className="text-gray-500 text-xs sm:text-sm mt-3 leading-relaxed">{t.expertise.description}</p>
             </div>
 
-            <div className="relative w-full shrink-0" style={{ height: 400 }}>
+            <div
+              className="relative w-full shrink-0"
+              style={{ height: "40vh", maxHeight: "400px", minHeight: "280px" }}
+            >
               {t.expertise.items.map((item, index) => {
                 const Icon = icons[index % icons.length];
                 const anim = deckAnimate(activeIndex - index);
@@ -64,14 +67,14 @@ export default function Expertise() {
                 return (
                   <motion.div
                     key={index}
-                    className="absolute top-0 left-0 right-0"
-                    style={{ height: 330, zIndex: anim.zIndex }}
+                    className="absolute top-0 left-0 right-0 h-full"
+                    style={{ zIndex: anim.zIndex }}
                     animate={{ y: anim.y, opacity: anim.opacity, scale: anim.scale }}
                     transition={CARD_TRANSITION}
                   >
                     <div className="absolute inset-0 bg-zinc-900 rounded-2xl border border-zinc-800 overflow-hidden shadow-xl shadow-black/30 pointer-events-none" />
-                    <div className="relative h-full rounded-2xl overflow-hidden">
-                      <div className="relative h-40">
+                    <div className="relative h-full rounded-2xl overflow-hidden flex flex-col">
+                      <div className="relative h-[45%] shrink-0">
                         <img
                           src={expertiseImages[index]}
                           alt={item.title}
@@ -81,12 +84,14 @@ export default function Expertise() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent" />
                         <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm p-2 rounded-xl border border-blue-500/20">
-                          <Icon size={18} className="text-blue-400" />
+                          <Icon size={16} className="text-blue-400" />
                         </div>
                       </div>
-                      <div className="p-5">
-                        <h3 className="text-base font-bold text-white mb-1.5">{item.title}</h3>
-                        <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">{item.description}</p>
+                      <div className="p-4 flex-grow overflow-hidden">
+                        <h3 className="text-sm sm:text-base font-bold text-white mb-1.5">{item.title}</h3>
+                        <p className="text-gray-400 text-xs sm:text-sm leading-relaxed line-clamp-4">
+                          {item.description}
+                        </p>
                       </div>
                     </div>
                   </motion.div>
@@ -97,14 +102,14 @@ export default function Expertise() {
         </div>
 
         <div className="hidden lg:block sticky top-0 h-screen overflow-hidden">
-          <div className="h-full flex items-center container mx-auto px-8 xl:px-12">
+          <div className="h-full flex items-center container mx-auto px-8 xl:px-12 pt-20">
             <div className="grid grid-cols-[2fr_3fr] gap-10 xl:gap-16 w-full">
               <div className="flex flex-col justify-center">
-                <div className="mb-10">
-                  <h2 className="text-4xl xl:text-5xl font-bold text-white leading-tight mb-3">{t.expertise.title}</h2>
+                <div className="mb-8">
+                  <h2 className="text-3xl xl:text-4xl font-bold text-white leading-tight mb-3">{t.expertise.title}</h2>
                   <p className="text-gray-500 text-sm xl:text-base max-w-md">{t.expertise.description}</p>
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {t.expertise.items.map((item, index) => (
                     <motion.div
                       key={index}
@@ -116,14 +121,14 @@ export default function Expertise() {
                       className="cursor-default"
                     >
                       <h3
-                        className={`text-lg xl:text-xl font-bold mb-1.5 transition-colors duration-200 ${
+                        className={`text-base xl:text-lg font-bold mb-1 transition-colors duration-200 ${
                           activeIndex === index ? "text-white" : "text-zinc-600"
                         }`}
                       >
                         {item.title}
                       </h3>
                       <p
-                        className={`text-sm xl:text-base max-w-sm leading-relaxed transition-colors duration-200 ${
+                        className={`text-xs xl:text-sm max-w-sm leading-relaxed transition-colors duration-200 ${
                           activeIndex === index ? "text-gray-400" : "text-zinc-800"
                         }`}
                       >
@@ -135,7 +140,7 @@ export default function Expertise() {
               </div>
 
               <div className="flex items-center justify-center">
-                <div className="relative w-full" style={{ height: "min(640px, 78vh)" }}>
+                <div className="relative w-full" style={{ height: "min(500px, 60vh)" }}>
                   {t.expertise.items.map((item, index) => {
                     const Icon = icons[index % icons.length];
                     const anim = deckAnimate(activeIndex - index);
@@ -160,11 +165,11 @@ export default function Expertise() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/30 to-black/20" />
                             <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md p-3 rounded-xl border border-blue-500/20 shadow-lg">
-                              <Icon size={26} className="text-blue-400" />
+                              <Icon size={24} className="text-blue-400" />
                             </div>
                           </div>
-                          <div className="p-6 xl:p-8">
-                            <h3 className="text-xl xl:text-2xl font-bold text-white mb-2">{item.title}</h3>
+                          <div className="p-5 xl:p-6">
+                            <h3 className="text-lg xl:text-xl font-bold text-white mb-2">{item.title}</h3>
                             <p className="text-gray-400 text-sm xl:text-base leading-relaxed">{item.description}</p>
                           </div>
                         </div>
