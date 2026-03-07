@@ -7,9 +7,13 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-8 sm:pt-20 lg:pt-16 lg:pb-0 overflow-hidden bg-black">
-      {/* Background Gradients */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-900/40 rounded-full blur-[120px] pointer-events-none transform translate-x-1/3 -translate-y-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900/30 rounded-full blur-[120px] pointer-events-none transform -translate-x-1/3 translate-y-1/3"></div>
+      {/* Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.12),transparent_34%),linear-gradient(180deg,_rgba(255,255,255,0.03)_0%,rgba(255,255,255,0)_18%,rgba(0,0,0,0)_100%)] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:84px_84px] opacity-20 pointer-events-none [mask-image:radial-gradient(circle_at_center,_black,_transparent_78%)]"></div>
+      <div className="absolute top-0 right-0 w-[420px] h-[420px] bg-blue-500/10 rounded-full blur-[140px] pointer-events-none transform translate-x-1/4 -translate-y-1/4"></div>
+      <div className="absolute top-1/3 left-1/2 w-[520px] h-[520px] bg-cyan-400/6 rounded-full blur-[170px] pointer-events-none transform -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-[360px] h-[360px] bg-white/5 rounded-full blur-[150px] pointer-events-none transform -translate-x-1/4 translate-y-1/4"></div>
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-black pointer-events-none"></div>
 
       <div className="container mx-auto px-6 h-full flex flex-col justify-center items-center relative z-10 text-center">
         {/* Text Content */}
