@@ -20,18 +20,16 @@ export default function Hero() {
           className="max-w-5xl flex flex-col items-center"
         >
           <div className="flex flex-col items-center mb-6">
-            <div className="w-full max-w-fit flex flex-col">
+            <div className="w-full max-w-fit flex flex-col items-center">
               <span className="text-blue-400 font-mono text-base md:text-lg tracking-wide mb-2 text-left">
                 {t.hero.hello}
               </span>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-semibold text-white leading-none tracking-tighter text-center">
-                Wylham
-              </h1>
-              <div className="relative inline-block mt-1 self-center">
-                <div className="absolute bottom-0 left-0 w-full h-[55%] bg-blue-500"></div>
-                <span className="relative text-4xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-semibold italic text-white leading-none tracking-tighter">
-                  Dev
-                </span>
+              <div className="relative inline-flex max-w-full justify-center">
+                <div className="absolute inset-x-0 bottom-[10%] h-[42%] rounded-sm bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500"></div>
+                <h1 className="relative whitespace-nowrap px-1 text-4xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-semibold text-white leading-none tracking-tighter text-center">
+                  <span>Wylham</span>
+                  <span className="italic">Dev</span>
+                </h1>
               </div>
             </div>
           </div>
