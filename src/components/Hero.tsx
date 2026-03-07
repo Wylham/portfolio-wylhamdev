@@ -6,7 +6,7 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-8 sm:pt-20 lg:pt-16 lg:pb-0 overflow-hidden bg-black">
+    <section className="relative flex min-h-[88svh] items-center overflow-hidden bg-black pt-24 pb-12 sm:min-h-screen sm:pt-20 sm:pb-8 lg:pt-16 lg:pb-0">
       {/* Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.12),transparent_34%),linear-gradient(180deg,_rgba(255,255,255,0.03)_0%,rgba(255,255,255,0)_18%,rgba(0,0,0,0)_100%)] pointer-events-none"></div>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:84px_84px] opacity-20 pointer-events-none [mask-image:radial-gradient(circle_at_center,_black,_transparent_78%)]"></div>

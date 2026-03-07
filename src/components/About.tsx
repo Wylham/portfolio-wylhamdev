@@ -15,7 +15,7 @@ export default function About() {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="min-h-screen flex items-center py-16 lg:py-0 bg-black relative">
+    <section id="about" className="relative bg-black py-12 sm:py-16 lg:min-h-screen lg:py-0 lg:flex lg:items-center">
       <div className="container mx-auto px-6 w-full">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Left Column: Image */}
