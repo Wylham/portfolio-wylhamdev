@@ -142,7 +142,7 @@ export const translations = {
     footer: {
       rights: "Todos os direitos reservados.",
       description:
-        "Acredito que tecnologia boa é aquela que resolve problemas de forma simples e eficiente. É nisso que coloco minha energia: construir soluções bem feitas, com foco em clareza, performance e resultado.",
+        "Desenvolvedor Backend especializado em APIs escaláveis ​​e arquiteturas robustas com Node.js, TypeScript e tecnologias de nuvem.",
       quickLinks: "Links Rápidos",
       connect: "Conecte-se",
     },
