@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { scrollToSection } from "../utils/scrollToSection";
 
 const socialLinks = [
   { name: "GitHub", icon: Github, href: "https://github.com/wylham" },
@@ -25,9 +26,7 @@ export default function Footer() {
 
   const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const target = document.querySelector(href);
-    if (!target) return;
-    target.scrollIntoView({ behavior: "smooth" });
+    scrollToSection(href);
   };
 
   return (
@@ -107,7 +106,7 @@ export default function Footer() {
                 ))}
               </div>
               <a
-                href="mailto:contato@wylhamdev.com"
+                href="mailto:wylhamdev@gmail.com"
                 className="text-sm text-gray-500 transition-colors duration-200 hover:text-blue-400"
               >
                 wylhamdev@gmail.com

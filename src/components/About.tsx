@@ -1,5 +1,7 @@
+import React from "react";
 import { motion } from "motion/react";
 import { useLanguage } from "../context/LanguageContext";
+import { scrollToSection } from "../utils/scrollToSection";
 
 const skills = [
   { name: "Node.js", logoSrc: "/tech-logos/node-js-svgrepo-com.svg" },
@@ -13,6 +15,11 @@ const skills = [
 
 export default function About() {
   const { t } = useLanguage();
+
+  const handleNav = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    event.preventDefault();
+    scrollToSection(href);
+  };
 
   return (
     <section id="about" className="relative bg-black py-12 sm:py-16 lg:min-h-screen lg:py-0 lg:flex lg:items-center">
@@ -73,9 +80,13 @@ export default function About() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <button className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded transition-colors text-center text-sm sm:text-base">
+              <a
+                href="#contact"
+                onClick={(event) => handleNav(event, "#contact")}
+                className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded transition-colors text-center text-sm sm:text-base"
+              >
                 {t.about.hireMe}
-              </button>
+              </a>
               <button className="px-6 py-2.5 border border-zinc-700 hover:border-white text-white font-medium rounded transition-colors text-center text-sm sm:text-base">
                 {t.about.aboutMe}
               </button>

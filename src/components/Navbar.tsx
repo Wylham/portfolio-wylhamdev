@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "../context/LanguageContext";
+import { scrollToSection } from "../utils/scrollToSection";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { t, language, setLanguage } = useLanguage();
+  const navRef = useRef<HTMLElement>(null);
 
   const navLinks = [
     { name: t.nav.about, href: "#about" },
@@ -23,27 +25,47 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+
+    const updateHeaderHeight = () => {
+      document.documentElement.style.setProperty("--site-header-height", `${nav.getBoundingClientRect().height}px`);
+    };
+
+    updateHeaderHeight();
+
+    const observer = new ResizeObserver(updateHeaderHeight);
+    observer.observe(nav);
+    window.addEventListener("resize", updateHeaderHeight);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateHeaderHeight);
+    };
+  }, []);
+
   const toggleLanguage = () => {
     setLanguage(language === "en" ? "pt" : "en");
   };
 
   const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const target = document.querySelector(href);
-    if (!target) return;
-    target.scrollIntoView({ behavior: "instant" });
+    scrollToSection(href);
   };
 
   const handleMobileNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
     setTimeout(() => {
-      document.querySelector(href)?.scrollIntoView({ behavior: "instant" });
+      scrollToSection(href);
     }, 280);
   };
 
   return (
     <nav
+      ref={navRef}
+      data-site-header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-black/90 backdrop-blur-md py-4" : "bg-transparent py-6"
       }`}

@@ -1,9 +1,16 @@
+import type { MouseEvent } from "react";
 import { motion } from "motion/react";
 import { ArrowDown, Download } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { scrollToSection } from "../utils/scrollToSection";
 
 export default function Hero() {
   const { t } = useLanguage();
+
+  const handlePortfolioClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    scrollToSection("#portfolio");
+  };
 
   return (
     <section className="relative flex min-h-[88svh] items-center overflow-hidden bg-black pt-24 pb-12 sm:min-h-screen sm:pt-20 sm:pb-8 lg:pt-16 lg:pb-0">
@@ -49,6 +56,7 @@ export default function Hero() {
             </button>
             <a
               href="#portfolio"
+              onClick={handlePortfolioClick}
               className="px-6 py-3 border border-gray-700 hover:border-white text-white font-medium rounded-full transition-all text-base hover:bg-white/5"
             >
               {t.hero.myWork}

@@ -29,10 +29,11 @@ export default function Projects() {
   return (
     <section
       id="portfolio"
-      className="relative min-h-screen flex flex-col justify-center py-20 lg:py-0 bg-zinc-950 scroll-mt-24"
+      className="relative flex flex-col justify-center bg-zinc-950 py-16 lg:py-8 scroll-mt-24"
+      style={{ minHeight: "calc(100svh - var(--site-header-height, 96px))" }}
     >
-      <div className="max-w-6xl mx-auto px-6 w-full ">
-        <div className="text-center mb-10 lg:mb-12">
+      <div className="max-w-6xl mx-auto px-6 w-full">
+        <div className="text-center mb-8 lg:mb-10">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +99,7 @@ export default function Projects() {
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-8 lg:mt-10">
           <button className="px-6 py-2.5 border border-blue-600 text-blue-500 hover:bg-blue-600 hover:text-white font-bold rounded transition-colors text-sm sm:text-base">
             {t.projects.viewAll}
           </button>
