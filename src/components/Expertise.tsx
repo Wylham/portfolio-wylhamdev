@@ -114,7 +114,7 @@ export default function Expertise() {
                     <motion.div
                       key={index}
                       animate={{
-                        opacity: activeIndex === index ? 1 : 0.2,
+                        opacity: 1,
                         x: activeIndex === index ? 0 : -10,
                       }}
                       transition={CARD_TRANSITION}
@@ -122,15 +122,13 @@ export default function Expertise() {
                     >
                       <h3
                         className={`text-base xl:text-lg font-bold mb-1 transition-colors duration-200 ${
-                          activeIndex === index ? "text-white" : "text-zinc-600"
+                          activeIndex === index ? "text-blue-500" : "text-zinc-200"
                         }`}
                       >
                         {item.title}
                       </h3>
                       <p
-                        className={`text-xs xl:text-sm max-w-sm leading-relaxed transition-colors duration-200 ${
-                          activeIndex === index ? "text-gray-400" : "text-zinc-800"
-                        }`}
+                        className="text-xs xl:text-sm max-w-sm leading-relaxed text-gray-400 transition-colors duration-200"
                       >
                         {item.description}
                       </p>
